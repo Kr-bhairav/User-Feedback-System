@@ -1,0 +1,66 @@
+Data Flow (Frontend → Backend → DB):
+
+User Interaction (Frontend):
+
+  The user submits feedback via a form (React component).
+
+  Data is sent to the backend using Axios POST request.
+
+Backend Handling (Express):
+
+  Express receives the data at a REST API endpoint (/api/feedbacks).
+
+  The backend validates and stores it in MongoDB using Mongoose models.
+
+Dashboard Retrieval:
+
+  On loading the dashboard, a GET request is sent to fetch all feedback.
+
+  Data is filtered/sorted as needed and displayed with charts (like pie charts).
+
+Backend Components
+
+  Model: Feedback.js defines the schema (name, email, feedback text, etc.).
+
+  Route: feedbackRoutes.js handles API logic for:
+
+  GET /api/feedbacks → fetch all feedback
+
+  POST /api/feedbacks → add new feedback
+
+Frontend Components
+
+  FeedbackForm.js:
+
+  Handles form submission.
+
+  Sends POST request to backend.
+
+  FeedbackDashboard.js:
+
+  Fetches feedback from backend.
+
+  Displays filtered/sorted list.
+
+  Shows analytics (e.g., category-wise pie chart).
+
+Connection Details
+
+  React app runs on http://localhost:3000
+
+  Express server runs on http://localhost:5000
+
+  MongoDB runs locally on mongodb://127.0.0.1:27017/userfeedback
+
+  Axios requests from frontend are proxied or directly targeted to localhost:5000/api/...
+
+-->Example Flow: Submitting Feedback
+   User fills and submits the form.
+
+   FeedbackForm.js sends:
+
+   axios.post('http://localhost:5000/api/feedbacks', { ...formData });
+   Backend saves the feedback using Mongoose.
+
+   Dashboard component fetches all feedback and updates the view.
+
