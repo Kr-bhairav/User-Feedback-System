@@ -1,5 +1,5 @@
-# User-Feedback-Assignment
-# 📝 User Feedback Assignment
+# User-Feedback-System
+# 📝 User Feedback System
 
 A full-stack web application that allows users to submit feedback and view analytics. Built with **React**, **Node.js**, **Express**, **MongoDB**, and **Bootstrap**.
 
